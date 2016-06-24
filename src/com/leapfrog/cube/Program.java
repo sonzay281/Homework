@@ -14,7 +14,8 @@ public class Program {
         Scanner input = new Scanner(System.in);
         ask_user();
         int option = input.nextInt();
-           switch (option) {
+        while (true) {
+            switch (option) {
                 case 1:
                     rectangle(length, breadth, cal_option, total);
                     break;
@@ -29,9 +30,17 @@ public class Program {
                     System.out.println("Invalid Selection");
                     break;
             }
+            System.out.println("Do you want to calculate more?\n1.Yes\t2.No");
+            int opt = input.nextInt();
+            if (opt == 1) {
+                ask_user();
+            } else {
+                return;
+            }
 
         }
-    
+    }
+
     private static void ask_user() {
 
         System.out.println("Please select one of the following(1-3): ");
@@ -76,7 +85,7 @@ public class Program {
         switch (cal_option) {
             case 1:
                 total = 6 * length * length;
-               break;
+                break;
 
             case 2:
                 total = 12 * length;
